@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Quiero preguntarte algo especial!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #carta {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #ff5f5f;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        button {
+            background-color: #ff5f5f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #e54949;
+        }
+        #respuesta {
+            margin-top: 20px;
+        }
+        #botonNo {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="carta">
+        <h1>¡Hola Marysol, alias mi vida!</h1>
+        <p>Hay algo que he estado queriendo decirte desde hace un tiempo y creo que ahora es el momento perfecto para hacerlo...</p>
+        <p>Desde el momento en que nos conocimos, cada momento a tu lado ha sido especial para mí. Tu sonrisa ilumina mis días y tu compañía hace que todo sea más brillante.</p>
+        <p>Me gustaría que nuestros momentos juntos fueran aún más especiales... ¿Aceptarías ser mi novia?</p>
+        <button onclick="mostrarRespuesta('si')">Sí</button>
+        <button id="botonNo" onclick="mostrarRespuesta('no')">No</button>
+        <p id="respuesta" style="display:none;"></p>
+    </div>
+
+    <script>
+        function mostrarRespuesta(respuesta) {
+            if (respuesta === 'si') {
+                document.getElementById("respuesta").innerText = "¡Sí, por supuesto que quiero ser tu novia! ¡Me haces muy feliz!";
+                document.getElementById("respuesta").style.display = "block";
+            } else if (respuesta === 'no') {
+                document.getElementById("respuesta").innerText = "Tu cola si ya somos.";
+                document.getElementById("respuesta").style.display = "block";
+                setTimeout(function() {
+                    document.getElementById("botonNo").style.display = "none";
+                }, 2000);
+            }
+        }
+
+        document.getElementById("botonNo").addEventListener('mouseover', function() {
+            this.style.position = 'absolute';
+            this.style.top = Math.random() * (window.innerHeight - this.offsetHeight) + 'px';
+            this.style.left = Math.random() * (window.innerWidth - this.offsetWidth) + 'px';
+        });
+    </script>
+</body>
+</html>
